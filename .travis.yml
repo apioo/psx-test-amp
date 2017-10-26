@@ -4,10 +4,12 @@ php:
   - 7.1
 sudo: false
 install:
-  - pushd public
-  - ../vendor/bin/aerys -d -c index.php
-  - popd
   - composer install
+before_script:
+  - pushd public
+  - ../vendor/bin/aerys -d -c index.php &
+  - popd
+  - sleep 4
 script:
   - vendor/bin/phpunit
 env:
