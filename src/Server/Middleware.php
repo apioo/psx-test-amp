@@ -92,13 +92,8 @@ class Middleware
 
         // read body
         if (in_array($request->getMethod(), ['POST', 'PUT', 'DELETE', 'PATCH'])) {
-            $body   = $request->getBody();
-            $buffer = '';
-            while (($chunk = yield $body->read()) !== null) {
-                $buffer .= $chunk;
-            }
-
-            $psxRequest->setBody(new StringStream($buffer));
+            $body = yield $request->getBody();
+            $psxRequest->setBody(new StringStream($body));
         }
 
         $dispatch->route($psxRequest, $psxResponse);
