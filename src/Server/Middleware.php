@@ -21,11 +21,15 @@
 namespace App\Server;
 
 use Aerys\Request;
+use Amp;
+use Amp\ByteStream\InputStream;
+use Amp\Promise;
 use PSX\Framework\Config\Config;
 use PSX\Framework\Dispatch\ControllerFactoryInterface;
 use PSX\Framework\Dispatch\Dispatch;
 use PSX\Framework\Exception\ConverterInterface;
 use PSX\Framework\Loader\LoaderInterface;
+use PSX\Http\Stream\StringStream;
 use PSX\Uri\Uri;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -83,9 +87,20 @@ class Middleware
             $this->exceptionConverter
         );
 
-        $request  = new \PSX\Http\Request(new Uri($request->getUri()), $request->getMethod(), $request->getAllHeaders(), new BodyStream($request->getBody()));
-        $response = new \PSX\Http\Response();
+        $psxRequest  = new \PSX\Http\Request(new Uri($request->getUri()), $request->getMethod(), $request->getAllHeaders());
+        $psxResponse = new \PSX\Http\Response();
 
-        $dispatch->route($request, $response);
+        // read body
+        if (in_array($request->getMethod(), ['POST', 'PUT', 'DELETE', 'PATCH'])) {
+            $body   = $request->getBody();
+            $buffer = '';
+            while (($chunk = yield $body->read()) !== null) {
+                $buffer .= $chunk;
+            }
+
+            $psxRequest->setBody(new StringStream($buffer));
+        }
+
+        $dispatch->route($psxRequest, $psxResponse);
     }
 }
