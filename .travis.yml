@@ -7,10 +7,9 @@ install:
   - composer install
 before_script:
   - pushd public
-  - DB=config ../vendor/bin/aerys -d -c index.php &
+  - ../vendor/bin/aerys -d -c index.php &
   - popd
   - sleep 4
 script:
-  - vendor/bin/phpunit
-env:
-  - DB=sqlite
+  - DB=config vendor/bin/phpunit
+
