@@ -7,7 +7,7 @@ install:
   - composer install
 before_script:
   - pushd public
-  - ../vendor/bin/aerys -d -c index.php &
+  - DB=config ../vendor/bin/aerys -d -c index.php &
   - popd
   - sleep 4
 script:
