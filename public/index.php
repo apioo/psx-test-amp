@@ -23,14 +23,7 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 $container = new \App\Dependency\Container();
 $container->setParameter('config.file', __DIR__ . '/../configuration.php');
 
-PSX\Framework\Bootstrap::setupEnvironment($container->get('config'));
+$engine      = new \PSX\Framework\Environment\Aerys\Engine();
+$environment = new \PSX\Framework\Environment\Environment($container, $engine);
 
-$psx = new \App\Server\Middleware(
-    $container->get('config'),
-    $container->get('loader'),
-    $container->get('application_stack_factory'),
-    $container->get('event_dispatcher'),
-    $container->get('exception_converter')
-);
-
-return (new \Aerys\Host())->expose("*", 8080)->use($psx);
+return $environment->serve();
