@@ -20,8 +20,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-$container = new \App\Dependency\Container();
-$container->setParameter('config.file', __DIR__ . '/../configuration.php');
+$container = require_once(__DIR__ . '/../container.php');
 
 $engine      = new \PSX\Framework\Environment\Aerys\Engine();
 $environment = new \PSX\Framework\Environment\Environment($container, $engine);

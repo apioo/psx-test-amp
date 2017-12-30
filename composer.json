@@ -1,13 +1,14 @@
 {
   "name": "psx/aerys",
   "description": "PSX using the Aerys HTTP server",
+  "keywords": ["API", "Framework", "REST"],
   "homepage": "http://phpsx.org",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Christoph Kappestein",
       "email": "christoph.kappestein@gmail.com",
-      "homepage": "http://christoph.kappestein.com"
+      "homepage": "http://christoph.kappestein.com/"
     }
   ],
   "require": {
@@ -20,14 +21,10 @@
     "phpunit/dbunit": "^2.0",
     "guzzlehttp/guzzle": "^6.3"
   },
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/"
-    }
-  },
+  "bin": ["bin/psx"],
   "autoload-dev": {
     "psr-4": {
-      "App\\Tests\\": "tests/"
+      "PSX\\Framework\\App\\": "vendor/psx/framework/app/"
     }
   }
 }
