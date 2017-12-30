@@ -12,7 +12,4 @@ before_script:
   - popd
   - sleep 4
 script:
-  - vendor/bin/phpunit
-env:
-  - DB=sqlite
-  - SEND=external
+  - DB=sqlite SEND=external vendor/bin/phpunit
