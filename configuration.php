@@ -13,6 +13,9 @@ return array(
     // http://localhost.com or //localhost.com)
     'psx_url'                 => 'http://127.0.0.1:8080',
 
+    // The input path 'index.php/' or '' if you use mod_rewrite
+    'psx_dispatch'            => '',
+
     // The default timezone
     'psx_timezone'            => 'UTC',
 
