@@ -4,12 +4,17 @@ php:
   - 7.1
   - 7.2
 sudo: false
+services:
+  - mysql
 install:
   - composer install
 before_script:
+  - mysql -e 'create database psx;'
   - pushd public
   - ../vendor/bin/aerys -d -c index.php &
   - popd
   - sleep 4
 script:
-  - DB=sqlite SEND=external vendor/bin/phpunit
+  - SEND=external vendor/bin/phpunit
+env:
+  - DB=mysql

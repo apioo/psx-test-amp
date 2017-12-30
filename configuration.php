@@ -26,8 +26,11 @@ return array(
     // Database parameters which are used for the doctrine DBAL connection
     // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html
     'psx_connection'          => [
-        'path'                => __DIR__ . '/cache/population.db',
-        'driver'              => 'pdo_sqlite',
+        'dbname'              => 'psx',
+        'user'                => 'root',
+        'password'            => '',
+        'host'                => 'localhost',
+        'driver'              => 'pdo_mysql',
     ],
 
     // Path to the routing file
