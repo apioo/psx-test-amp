@@ -21,7 +21,6 @@
     "phpunit/dbunit": "^2.0",
     "guzzlehttp/guzzle": "^6.3"
   },
-  "bin": ["bin/psx"],
   "autoload-dev": {
     "psr-4": {
       "PSX\\Framework\\App\\": "vendor/psx/framework/app/"
