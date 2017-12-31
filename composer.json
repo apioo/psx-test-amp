@@ -1,7 +1,7 @@
 {
   "require": {
     "php": ">=7.0",
-    "psx/framework": "dev-master",
+    "psx/framework": "^3.0",
     "amphp/aerys": "^0.7.0"
   },
   "require-dev": {
