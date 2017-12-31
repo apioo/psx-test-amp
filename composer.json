@@ -1,16 +1,4 @@
 {
-  "name": "psx/aerys",
-  "description": "PSX using the Aerys HTTP server",
-  "keywords": ["API", "Framework", "REST"],
-  "homepage": "http://phpsx.org",
-  "license": "Apache-2.0",
-  "authors": [
-    {
-      "name": "Christoph Kappestein",
-      "email": "christoph.kappestein@gmail.com",
-      "homepage": "http://christoph.kappestein.com/"
-    }
-  ],
   "require": {
     "php": ">=7.0",
     "psx/framework": "dev-master",
