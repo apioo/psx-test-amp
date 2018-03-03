@@ -3,12 +3,13 @@ PSX Aerys
 
 ## About
 
-This is a sample application which shows howto use the [Aerys](https://github.com/amphp/aerys)
-HTTP server to serve requests. More information about PSX at http://phpsx.org
+This is a test repository which tests the default PSX app against the 
+[Aerys](https://github.com/amphp/aerys) web server. More information about PSX 
+at http://phpsx.org
 
 ## Run
 
-To start the webserver go to the the `public/` dir and execute the following 
+To start the web server go to the the `public/` dir and execute the following 
 command:
 
 ```
