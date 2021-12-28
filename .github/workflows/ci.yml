@@ -22,13 +22,13 @@ jobs:
       - name: Setup MySQL
         run: |
           sudo /etc/init.d/mysql start
-          mysql -e "CREATE DATABASE fusio;" -uroot -proot
+          mysql -e "CREATE DATABASE psx;" -uroot -proot
           mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test1234';" -uroot -proot
       - name: Composer install
         run: composer install --no-interaction --no-ansi --no-progress
       - name: Run AMP
-        run: cd public && php index.php &
+        run: cd public && DB=mysql php index.php &
       - name: Wait
         run: sleep 4
       - name: Run PHPUnit
-        run: SEND=external vendor/bin/phpunit
+        run: SEND=external DB=mysql vendor/bin/phpunit
