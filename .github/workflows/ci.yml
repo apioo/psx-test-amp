@@ -27,8 +27,8 @@ jobs:
       - name: Composer install
         run: composer install --no-interaction --no-ansi --no-progress
       - name: Run AMP
-        run: cd public && php index.php &
+        run: cd public && DB=mysql php index.php &
       - name: Wait
         run: sleep 4
       - name: Run PHPUnit
-        run: SEND=external vendor/bin/phpunit
+        run: SEND=external DB=mysql vendor/bin/phpunit
