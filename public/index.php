@@ -23,6 +23,7 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 $container = require_once(__DIR__ . '/../container.php');
 
 $engine      = new \PSX\Engine\Amp\Engine();
-$environment = \PSX\Framework\Environment\Environment::fromContainer($container, $engine);
+$dispatcher  = $container->get(\PSX\Engine\DispatchInterface::class);
+$environment = new \PSX\Framework\Environment\Environment($dispatcher, $engine);
 
-$environment->serve();
+return $environment->serve();
