@@ -26,6 +26,8 @@ return [
     // https://symfony.com/doc/current/mailer.html#using-built-in-transports
     'psx_mailer'              => env('APP_MAILER')->string(),
 
+    'psx_migration_namespace' => 'PSX\\Framework\\Tests\\Migrations',
+
     // Optional an SDKgen access token which adds support for different SDK generators
     // https://sdkgen.app/
     'sdkgen_client_id'        => env('SDKGEN_CLIENT_ID')->string(),
@@ -36,14 +38,7 @@ return [
 
     // Folder locations
     'psx_path_cache'          => __DIR__ . '/cache',
-    'psx_path_src'            => __DIR__ . '/src',
     'psx_path_log'            => __DIR__ . '/log',
-
-    // Supported writers
-    'psx_supported_writer'    => [
-        \PSX\Data\Writer\Json::class,
-        \PSX\Data\Writer\Jsonp::class,
-        \PSX\Data\Writer\Jsonx::class,
-    ],
+    'psx_path_src'            => __DIR__ . '/vendor/psx/framework/tests',
 
 ];

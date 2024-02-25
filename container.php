@@ -4,4 +4,6 @@ return \PSX\Framework\Dependency\ContainerBuilder::build(
     __DIR__,
     true,
     __DIR__ . '/vendor/psx/framework/resources/container.php',
+    __DIR__ . '/vendor/psx/framework/tests/test_container.php',
+    __DIR__ . '/vendor/psx/framework/app/container.php',
 );

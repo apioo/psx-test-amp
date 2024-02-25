@@ -26,4 +26,4 @@ $engine      = new \PSX\Engine\Amp\Engine();
 $dispatcher  = $container->get(\PSX\Engine\DispatchInterface::class);
 $environment = new \PSX\Framework\Environment\Environment($dispatcher, $engine);
 
-return $environment->serve();
+$environment->serve();
